@@ -1,0 +1,9 @@
+[package]
+name = "rust_tutorial"
+version = "0.1.0"
+edition = "2021"
+
+# Optional: a short description
+description = "Personal Rust learning lab: slices, ownership, and beyond."
+
+[dependencies]
