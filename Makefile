@@ -21,4 +21,6 @@ run:
 release:
 	cargo build --release
 
+build-release: release
+
 all: format lint test run
