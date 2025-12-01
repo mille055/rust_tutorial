@@ -9,17 +9,9 @@
 fn double_slice(xs: &mut [i32]) {
     println!("  in double_slice, before: {:?}", xs);
 
-    // TODO 1: Use a for-loop to double each element in `xs`.
-    //
-    // Hint:
-    //   for x in xs.iter_mut() {
-    //       *x = *x * 2;
-    //   }
-    //
-    // For now, this is a NO-OP so the code still compiles.
-    for _x in xs.iter_mut() {
+    for x in xs.iter_mut() {
         // Replace this comment with the real line when you're ready:
-        // *x *= 2;
+        *x *= 2
     }
 
     println!("  in double_slice, after:  {:?}", xs);
@@ -39,7 +31,7 @@ fn main() {
     //   &mut a[2..5]     // last three
     //
     // The code below is already valid; you only change it if you want to experiment.
-    double_slice(&mut a[1..4]);
+    double_slice(&mut a[1..3]);
 
     println!("after double_slice = {:?}  // will change once TODO 1 is implemented", a);
 
@@ -53,6 +45,8 @@ fn main() {
         //
         // For now, this block does nothing. Uncomment and tweak as you experiment.
     }
+    
+
 
     println!("\nMutable slice demo (fill-in-the-blank version) ✅");
 }
