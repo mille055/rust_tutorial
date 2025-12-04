@@ -194,8 +194,10 @@ fn main() {
     // Write your code for Case 5 here:
 
     
+    let first_even = numbers.iter().find(|&&x | x % 2 ==0).copied();
+    if let Some(val) = first_even {numbers.push(val*2)}
 
-    // TODO: Find first even, then push its double
+        // TODO: Find first even, then push its double
     // This naive approach won't compile - fix it!
     // let first_even = numbers.iter().find(|&&x| x % 2 == 0);
     // if let Some(&val) = first_even {
@@ -203,15 +205,15 @@ fn main() {
     // }
 
     // When you're ready to check Case 5, uncomment this:
-    //
-    // assert_eq!(
-    //     numbers,
-    //     vec![1, 2, 3, 4, 5, 4],
-    //     "Case 5 failed: expected [1, 2, 3, 4, 5, 4], got {:?}",
-    //     numbers
-    // );
-    //
-    // println!("Case 5 end: numbers = {:?}", numbers);
+    
+    assert_eq!(
+        numbers,
+        vec![1, 2, 3, 4, 5, 4],
+        "Case 5 failed: expected [1, 2, 3, 4, 5, 4], got {:?}",
+        numbers
+    );
+    
+    println!("Case 5 end: numbers = {:?}", numbers);
     println!();
 
     println!("Done. Uncomment asserts one by one to check your solutions.");
