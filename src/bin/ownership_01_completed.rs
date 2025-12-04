@@ -47,6 +47,7 @@ fn main() {
     let mut data = vec![1, 2, 3, 4, 5];
     println!("Case 2 start: data = {:?}", data);
 
+
     // Goal for Case 2:
     //
     //   - Write a function `sum_vec` that calculates the sum of a Vec<i32>
@@ -57,6 +58,13 @@ fn main() {
     // Expected: first sum = 15, second sum = 21, final data = [1,2,3,4,5,6]
     //
     // Write your code for Case 2 here:
+    fn sum_vec(v: &Vec<i32>) -> i32 {
+        let mut sum: i32 = 0;
+        for x in v.iter() {  
+            sum += *x
+        }
+        sum
+    }
 
     // TODO: Define sum_vec with the right signature
     // fn sum_vec(???) -> i32 {
@@ -64,18 +72,21 @@ fn main() {
     // }
 
     // TODO: Call sum_vec, push 6, call sum_vec again
-    // let first_sum = ???;
-    // ???
-    // let second_sum = ???;
+    let first_sum = sum_vec(&data);
+    data.push(6);
+    let second_sum: i32 = sum_vec(&data);
+
 
     // When you're ready to check Case 2, uncomment this:
     //
-    // assert_eq!(first_sum, 15, "Case 2 failed: first sum should be 15");
-    // assert_eq!(second_sum, 21, "Case 2 failed: second sum should be 21");
-    // assert_eq!(data, vec![1, 2, 3, 4, 5, 6], "Case 2 failed: data should have 6 pushed");
+    assert_eq!(first_sum, 15, "Case 2 failed: first sum should be 15");
+    assert_eq!(second_sum, 21, "Case 2 failed: second sum should be 21");
+    assert_eq!(data, vec![1, 2, 3, 4, 5, 6], "Case 2 failed: data should have 6 pushed");
     //
-    // println!("Case 2 end: data = {:?}", data);
-    println!();
+    println!("Case 2 end: data = {:?}", data);
+    println!("First sum: {:?}", first_sum);
+    println!("Second sum: {:?}", second_sum);
+    
 
     // -------------------- Case 3 --------------------
     // Mutable references - only one at a time!
@@ -92,6 +103,9 @@ fn main() {
     // After your code runs, `values` should be [20, 20, 60]
     //
     // Write your code for Case 3 here:
+    fn double_element(x: &mut i32) {
+        *x *= 2
+    }
 
     // TODO: Define double_element
     // fn double_element(???) {
@@ -100,17 +114,19 @@ fn main() {
 
     // TODO: Double first element, then last element
     // ???
+    double_element(&mut values[0]);
+    double_element(&mut values[2]);
 
     // When you're ready to check Case 3, uncomment this:
     //
-    // assert_eq!(
-    //     values,
-    //     [20, 20, 60],
-    //     "Case 3 failed: expected [20, 20, 60], got {:?}",
-    //     values
-    // );
+    assert_eq!(
+        values,
+        [20, 20, 60],
+        "Case 3 failed: expected [20, 20, 60], got {:?}",
+        values
+    );
     //
-    // println!("Case 3 end: values = {:?}", values);
+    println!("Case 3 end: values = {:?}", values);
     println!();
 
     // -------------------- Case 4 --------------------
@@ -134,6 +150,13 @@ fn main() {
     //
     // Write your code for Case 4 here:
 
+    fn longest_word(words: &[String]) -> &String {
+        let mut longest: &String = &words[0];
+        for word in words {
+            if word.len() > longest.len() {longest = word};
+        }
+        longest
+    }
     // TODO: Define longest_word - think about the return type!
     // fn longest_word(???) -> ??? {
     //     ???
@@ -141,13 +164,15 @@ fn main() {
 
     // TODO: Call longest_word
     // let longest = ???;
+    let longest = longest_word(&words[..]);
+
 
     // When you're ready to check Case 4, uncomment this:
-    //
-    // assert_eq!(longest, "banana", "Case 4 failed: longest should be 'banana'");
-    // assert_eq!(words.len(), 3, "Case 4 failed: words should still have 3 elements");
-    //
-    // println!("Case 4 end: longest = {:?}, words = {:?}", longest, words);
+    
+    assert_eq!(longest, "banana", "Case 4 failed: longest should be 'banana'");
+    assert_eq!(words.len(), 3, "Case 4 failed: words should still have 3 elements");
+    
+    println!("Case 4 end: longest = {:?}, words = {:?}", longest, words);
     println!();
 
     // -------------------- Case 5 --------------------
@@ -167,6 +192,8 @@ fn main() {
     // (first even is 2, so we push 2*2=4)
     //
     // Write your code for Case 5 here:
+
+    
 
     // TODO: Find first even, then push its double
     // This naive approach won't compile - fix it!
